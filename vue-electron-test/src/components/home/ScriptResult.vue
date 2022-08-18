@@ -1,27 +1,38 @@
-<!-- ScriptResult.vue -->
+<!-- ScriptTranslator.vue -->
 <template>
-  <div class="rwd_box___1ysJh">
-    <div class="translate_area___3xdxa translate_result___21ZBH mo_show___GaMYQ">
-      <div class="edit_area___2iv-G" style="display: none;">
-        <textarea class="edit_box___1KtZ3 active___3VPGL" maxlength="50000" rows="1" style="resize: none; height: 27px;"></textarea>
-        <div class="btn_toolbar___20tub">
-          <span class="tooltip___3KoCI">
-            <span class="tooltipbox___1ArNp">
-              <div class="tip___27k1n" style="left: -38px; right: -38px; width: 76px;">
-                <span>코드복사하기</span>
-              </div>
-            </span>
-          </span>
-        </div>
-      </div>
+    <div class="after">
+        <p>
+          <textarea v-html="message"></textarea>
+          <button id="copy_btn" type="copy" @click="copy">코드복사하기</button>
+        </p>
     </div>
-  </div>
 </template>
 
 <script>
-export default {}
+//import test from "@/assets/test.txt";
+
+export default {
+  data(){
+    return {
+      message: '<font color="blue">html</font>'
+    }
+  },
+}
 </script>
 
 <style scoped>
-
+h1 {
+    margin: 20px 20px;
+}
+textarea {
+    width: 80%;
+    height: 100px;
+      }
+#paste_btn {
+    width: 100px;
+    height: 50px;
+    margin-right: -3px;
+    background-color: rgb(45, 72, 244);
+    color: white;
+}
 </style>
