@@ -1,4 +1,4 @@
-<!-- ScriptTranslator.vue -->
+<!-- ScriptResult.vue -->
 <template>
   <div class="after">
     <div class="box">
