@@ -1,38 +1,63 @@
 <!-- ScriptTranslator.vue -->
 <template>
-    <div class="after">
-        <p>
-          <textarea v-html="message"></textarea>
-          <button id="copy_btn" type="copy" @click="copy">코드복사하기</button>
-        </p>
+  <div class="after">
+    <div class="box">
+      <div v-html="rawHtml"></div>
     </div>
+    <div class="buttonWrapper">
+      <div></div>
+      <button id="copy_btn" type="button" @click="handleCopyButtonClick">
+        코드복사하기
+      </button>
+    </div>
+  </div>
 </template>
 
 <script>
-//import test from "@/assets/test.txt";
-
 export default {
-  data(){
-    return {
-      message: '<font color="blue">html</font>'
-    }
+  props: ["rawHtml"],
+  methods: {
+    handleCopyButtonClick: function () {
+      this.$copyText(this.$props.rawHtml).then(() => alert("copied"));
+    },
   },
-}
+};
 </script>
 
 <style scoped>
-h1 {
-    margin: 20px 20px;
+.after {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
+
+.box {
+  padding: 12px;
+  height: 100px;
+  width: 100%;
+  border: solid 1px grey;
+  border-radius: 5px;
+}
+
+.buttonWrapper {
+    display: flex;
+    justify-content: flex-end;
+}
+
+h1 {
+  margin: 20px 20px;
+}
+
 textarea {
-    width: 80%;
-    height: 100px;
-      }
+  height: 100px;
+}
+
 #paste_btn {
-    width: 100px;
-    height: 50px;
-    margin-right: -3px;
-    background-color: rgb(45, 72, 244);
-    color: white;
+  width: 100px;
+  height: 50px;
+  margin-right: -3px;
+  background-color: rgb(45, 72, 244);
+  color: white;
 }
 </style>
